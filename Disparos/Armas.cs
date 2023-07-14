@@ -8,19 +8,35 @@ namespace Disparos.Disparos
 {
    public  class Armas
     {
-        int power { get; set; }
-        float range { get; set;}
-        int speed { get; set; } 
-        public virtual void disparar() 
+        public string Name { get; set; }
+      public  int Power { get; set; }
+      public  float Range { get; set;}
+      public  int Speed { get; set; } 
+        public virtual void Disparar() 
         {
-            Console.WriteLine($"El disparo tiene un poder de:{power} y un rango de:{range}");
+            Console.WriteLine($"El disparo tiene un poder de:{Power} y un rango de:{Range}");
         }
     }
     public class Pistola : Armas 
     {
-        public override void disparar()
+        public override void Disparar()
         {
-            Console.WriteLine("");
+            Console.WriteLine($"La pistola {Name},tiene un poder de {Power} y un alcance de {Range}");
+        }
+    }
+    public class Escopeta: Armas 
+    {
+        public override void Disparar()
+        {
+            Console.WriteLine($"La escopeta {Name} , tiene un poder de  {Power} y un alcance de {Range}"  );
+        }
+
+    }
+    public class Rifles: Armas 
+    {
+        public override void Disparar()
+        {
+            Console.WriteLine($"El sniper {Name}, tiene un poder de {Power} y un alcance de {Range}"  );
         }
     }
 }
