@@ -13,9 +13,9 @@ namespace Disparos.Enemies
     {
         string Name;
         int Hp = 300;
-        int HeadHp { get; set; }
+        int body;
         bool Shot = true;
-     
+        Random bodyHurtBox = new Random();
         public Enemy(string enemyName) 
         {
             Name = enemyName;
@@ -24,19 +24,21 @@ namespace Disparos.Enemies
 
         public void Disparado(int shotPower) 
         {
-
-            if (Shot == true )
+            body = bodyHurtBox.Next(1, 3);
+            if (Shot == true && body == 1)
+            {
+                Hp = 0;
+                Console.WriteLine("HeadShot!!");
+                
+            }
+            else if (Shot == true && body > 1)
             {
                 Hp = Hp - shotPower;
                 Console.WriteLine($"La vida del {Name} es: {Hp}");
             }
-            else if (Shot == true && Hp == shotPower) 
-            {
-               Hp = Hp -shotPower;
-                Console.WriteLine("Enemy Killed!");
-            }
-            
+
         }
+        
 
     }
 }
