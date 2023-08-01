@@ -15,6 +15,7 @@ namespace Disparos.Enemies
         int Hp = 300;
         int body;
         bool Shot = true;
+        //Enemy foe;
         Random bodyHurtBox = new Random();
         public Enemy(string enemyName) 
         {
@@ -31,10 +32,11 @@ namespace Disparos.Enemies
                 Console.WriteLine("HeadShot!!");
                 
             }
-            else if (Shot == true && body > 1)
+            else //if (Shot == true && body > 1)
             {
                 Hp = Hp - shotPower;
                 Console.WriteLine($"La vida del {Name} es: {Hp}");
+
             }
 
         }

@@ -5,22 +5,14 @@ using Disparos.Enemies;
 int opcion = 0;
 
 Enemy foe = new Enemy("Juan Carlos");
+Pistola pistol = new Pistola(50);
+Escopeta shotgun = new Escopeta(150);
+Rifles sniper = new Rifles(120);
 
-Armas pistol = new Pistola();
-Armas shotgun = new Escopeta();
-Armas sniper = new Rifles();
+//pistol.Name = "Bersa";
+//shotgun.Name = "Beretta";
+//sniper.Name = "Ak-5";
 
-pistol.Name = "Bersa";
-pistol.Power = 50;
-pistol.Range = 80;
-
-shotgun.Name = "Beretta";
-shotgun.Power = 150;
-shotgun.Range = 60; 
-
-sniper.Name = "Ak-5";
-sniper.Power = 120;
-sniper.Range = 150;
 
 
 Console.WriteLine("Tienes 3 armas para elegir disparar al enemigo que tienes al frente.");
@@ -30,16 +22,16 @@ opcion =Convert.ToInt32(Console.ReadLine());
 switch (opcion)
 {
     case 1:
-        foe.Disparado(pistol.Power);
-        pistol.Disparar();
+        foe.Disparado(pistol.Power);//50 de poder del constructor
+        foe.Disparar("Bersa",50,80);
         break;
     case 2:
         foe.Disparado(shotgun.Power);
-        shotgun.Disparar();
+        shotgun.Disparar("Beretta",150,60);
         break;
     case 3:
         foe.Disparado(sniper.Power);
-        sniper.Disparar();
+        sniper.Disparar("Ak-5",120,150);
         break;
     default:
         Console.WriteLine("Opcion Incorrecta!");
