@@ -36,7 +36,7 @@ namespace Disparos.Enemies
             {
                 Hp = Hp - shotPower;
                 Console.WriteLine($"La vida del {Name} es: {Hp}");
-
+                
             }
 
         }

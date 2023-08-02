@@ -5,14 +5,9 @@ using Disparos.Enemies;
 int opcion = 0;
 
 Enemy foe = new Enemy("Juan Carlos");
-Pistola pistol = new Pistola(50);
-Escopeta shotgun = new Escopeta(150);
-Rifles sniper = new Rifles(120);
-
-//pistol.Name = "Bersa";
-//shotgun.Name = "Beretta";
-//sniper.Name = "Ak-5";
-
+Armas pistol = new Pistola(50);
+Armas shotgun = new Escopeta(150);
+Armas sniper = new Rifles(120);
 
 
 Console.WriteLine("Tienes 3 armas para elegir disparar al enemigo que tienes al frente.");
@@ -23,7 +18,7 @@ switch (opcion)
 {
     case 1:
         foe.Disparado(pistol.Power);//50 de poder del constructor
-        foe.Disparar("Bersa",50,80);
+        pistol.Disparar("Bersa",50,80);
         break;
     case 2:
         foe.Disparado(shotgun.Power);

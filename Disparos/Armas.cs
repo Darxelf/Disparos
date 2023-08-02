@@ -13,16 +13,16 @@ namespace Disparos.Disparos
         public float Range { get; set; }
         public int Speed { get; set; }
 
-        //public Armas(int shotPower) 
+        //public Armas()
         //{
-        //    Power = shotPower;
+            
         //}
 
         public virtual void Disparar()
         {
             Console.WriteLine($"El disparo tiene un poder de:{Power} y un rango de:{Range}");
         }
-        public virtual void Disparar(string armName,int shotPower, float shotRange) 
+        public virtual void Disparar(string armName, int shotPower, float shotRange)
         {
             Console.WriteLine($"La pistola {armName},tiene un poder de {shotPower} y un rango de:{shotRange}");
         }
@@ -31,22 +31,24 @@ namespace Disparos.Disparos
     {
         public Pistola(int pistolPower)
         {
+            
             Power = pistolPower;
+
         }
-        //public override void Disparar()
-        //{
-        //  Console.WriteLine($"La pistola {Name},tiene un poder de {Power} y un alcance de {Range}");
-        //}
+        public override void Disparar(string armName, int shotPower, float shotRange)
+        {
+            Console.WriteLine($"La pistola {armName},tiene un poder de {shotPower} y un alcance de {shotRange}");
+        }
     }
     public class Escopeta: Armas 
     {
-        public Escopeta(int escopetaPower) 
+        public Escopeta(int escopetaPower)
         {
             Power = escopetaPower;
         }
-        public override void Disparar()
+        public override void Disparar(string armName,int shotPower, float shotRange)
         {
-            Console.WriteLine($"La escopeta {Name} , tiene un poder de  {Power} y un alcance de {Range}"  );
+            Console.WriteLine($"La escopeta {armName} , tiene un poder de  {shotPower} y un alcance de {shotRange}");
         }
 
     }
@@ -56,9 +58,9 @@ namespace Disparos.Disparos
         {
             Power = riflePower;    
         }
-        public override void Disparar()
+        public override void Disparar(string armName, int shotPower, float shotRange)
         {
-            Console.WriteLine($"El sniper {Name}, tiene un poder de {Power} y un alcance de {Range}"  );
+            Console.WriteLine($"El sniper {armName}, tiene un poder de {shotPower} y un alcance de {shotRange}");
         }
     }
 }
