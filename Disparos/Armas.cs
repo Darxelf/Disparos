@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Intrinsics.Arm;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,54 +14,66 @@ namespace Disparos.Disparos
         public float Range { get; set; }
         public int Speed { get; set; }
 
-        //public Armas()
-        //{
-            
-        //}
 
         public virtual void Disparar()
         {
             Console.WriteLine($"El disparo tiene un poder de:{Power} y un rango de:{Range}");
         }
-        public virtual void Disparar(string armName, int shotPower, float shotRange)
-        {
-            Console.WriteLine($"La pistola {armName},tiene un poder de {shotPower} y un rango de:{shotRange}");
-        }
+        //public virtual void Disparar(string armName, int shotPower, float shotRange)
+        //{
+        //    Console.WriteLine($"La pistola {armName},tiene un poder de {shotPower} y un rango de:{shotRange}");
+        //}
     }
     public class Pistola : Armas 
     {
-        public Pistola(int pistolPower)
+        public Pistola(string pistolName,int pistolPower, int pistolRange )
         {
-            
+            Name = pistolName;
             Power = pistolPower;
-
+            Range = pistolRange;
         }
-        public override void Disparar(string armName, int shotPower, float shotRange)
+        public override void Disparar()
         {
-            Console.WriteLine($"La pistola {armName},tiene un poder de {shotPower} y un alcance de {shotRange}");
+            Console.WriteLine($"La pistola {Name},tiene un poder de {Power} y un alcance de {Range}");
         }
+        //public override void Disparar(string armName, int shotPower, float shotRange)
+        //{
+        //    Console.WriteLine($"La pistola {armName},tiene un poder de {shotPower} y un alcance de {shotRange}");
+        //}
     }
     public class Escopeta: Armas 
     {
-        public Escopeta(int escopetaPower)
+        public Escopeta(string shotgunName,int shotgunPower,int shotgunRange)
         {
-            Power = escopetaPower;
+            Name = shotgunName;
+            Power = shotgunPower;
+            Range = shotgunRange;   
         }
-        public override void Disparar(string armName,int shotPower, float shotRange)
+        public override void Disparar()
         {
-            Console.WriteLine($"La escopeta {armName} , tiene un poder de  {shotPower} y un alcance de {shotRange}");
+            Console.WriteLine($"La escopeta {Name} , tiene un poder de  {Power} y un alcance de {Range}");
         }
+        //public override void Disparar(string armName,int shotPower, float shotRange)
+        //{
+        //    Console.WriteLine($"La escopeta {armName} , tiene un poder de  {shotPower} y un alcance de {shotRange}");
+        //}
 
     }
     public class Rifles: Armas 
     {
-        public Rifles(int riflePower) 
+        public Rifles(string rifleName,int riflePower,int rifleRange) 
         {
-            Power = riflePower;    
+            Name = rifleName;
+            Power = riflePower;
+            Range = rifleRange;        
         }
-        public override void Disparar(string armName, int shotPower, float shotRange)
+        public override void Disparar()
         {
-            Console.WriteLine($"El sniper {armName}, tiene un poder de {shotPower} y un alcance de {shotRange}");
+            Console.WriteLine($"El sniper {Name}, tiene un poder de {Power} y un alcance de {Range}");
         }
+        //public override void Disparar(string armName, int shotPower, float shotRange)
+        //{
+        //    Console.WriteLine($"El sniper {armName}, tiene un poder de {shotPower} y un alcance de {shotRange}");
+        //}
     }
 }

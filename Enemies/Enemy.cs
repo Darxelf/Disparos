@@ -14,8 +14,10 @@ namespace Disparos.Enemies
         string Name;
         int Hp = 300;
         int body;
-        bool Shot = true;
+        int accuracy;
+        bool Shot = false;
         //Enemy foe;
+        Random shotConfirm = new Random();
         Random bodyHurtBox = new Random();
         public Enemy(string enemyName) 
         {
@@ -25,18 +27,27 @@ namespace Disparos.Enemies
 
         public void Disparado(int shotPower) 
         {
-            body = bodyHurtBox.Next(1, 3);
-            if (Shot == true && body == 1)
+            accuracy = shotConfirm.Next(1,2);
+            if (accuracy == 1)
             {
-                Hp = 0;
-                Console.WriteLine("HeadShot!!");
-                
+                Shot = true;
+                body = bodyHurtBox.Next(1, 3);
+                if (Shot == true && body == 1)
+                {
+                    //Hp = 0;
+                    Console.WriteLine("HeadShot!!");
+
+                }
+                else if (Shot == true && body > 1)
+                {
+                    Hp = Hp - shotPower;
+                    Console.WriteLine($"La vida del {Name} es: {Hp}");
+                }
             }
-            else //if (Shot == true && body > 1)
+            else 
             {
-                Hp = Hp - shotPower;
-                Console.WriteLine($"La vida del {Name} es: {Hp}");
-                
+                Console.WriteLine("Has Fallado el disparo!");
+
             }
 
         }
